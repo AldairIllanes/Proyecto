@@ -4,24 +4,45 @@
 
 <h2>📋 Registrar Reclamo</h2>
 
-<form class="form-reclamo">
+<form method="POST" class="form-reclamo">
 
-    <input type="text" placeholder="Ingrese el nombre del reclamo">
+    {% csrf_token %}
 
-    <select>
+    <input type="text"
+           name="nombre"
+           placeholder="Ingrese el nombre del reclamo"
+           required>
 
-        <option>Académico</option>
-        <option>Administrativo</option>
-        <option>Técnico</option>
+    <select name="categoria" required>
+
+        <option value="">Seleccione una categoría</option>
+
+        <option value="Academico">
+            Académico
+        </option>
+
+        <option value="Administrativo">
+            Administrativo
+        </option>
+
+        <option value="Tecnico">
+            Técnico
+        </option>
 
     </select>
 
-    <textarea placeholder="Descripción del reclamo"></textarea>
+    <textarea name="descripcion"
+              placeholder="Descripción del reclamo"
+              required></textarea>
 
     <button type="submit">
         Guardar Reclamo
     </button>
 
 </form>
+
+{% if mensaje %}
+    <p>{{ mensaje }}</p>
+{% endif %}
 
 {% endblock %}

@@ -12,56 +12,41 @@
 
     <div class="tree-grid">
 
+        <!-- Académico -->
         <div class="tree-card">
 
             <h3>📘 Académico</h3>
 
-            {% for nodo in nodos %}
-
-                {% if nodo == "Matrícula" or nodo == "Notas" %}
-
-                    <div class="tree-item">
-                        {{ nodo }}
-                    </div>
-
-                {% endif %}
-
+            {% for nodo in academico %}
+                <div class="tree-item">
+                    {{ nodo }}
+                </div>
             {% endfor %}
 
         </div>
 
+        <!-- Administrativo -->
         <div class="tree-card">
 
             <h3>💳 Administrativo</h3>
 
-            {% for nodo in nodos %}
-
-                {% if nodo == "Pagos" %}
-
-                    <div class="tree-item">
-                        {{ nodo }}
-                    </div>
-
-                {% endif %}
-
+            {% for nodo in administrativo %}
+                <div class="tree-item">
+                    {{ nodo }}
+                </div>
             {% endfor %}
 
         </div>
 
+        <!-- Técnico -->
         <div class="tree-card">
 
             <h3>💻 Técnico</h3>
 
-            {% for nodo in nodos %}
-
-                {% if nodo == "Aula Virtual" %}
-
-                    <div class="tree-item">
-                        {{ nodo }}
-                    </div>
-
-                {% endif %}
-
+            {% for nodo in tecnico %}
+                <div class="tree-item">
+                    {{ nodo }}
+                </div>
             {% endfor %}
 
         </div>
@@ -72,9 +57,15 @@
 
 <div class="card stats-card">
 
-    <p><strong>Total de nodos:</strong> {{ total }}</p>
+    <p>
+        <strong>Total de nodos:</strong>
+        {{ total }}
+    </p>
 
-    <p><strong>Altura del árbol:</strong> {{ altura }}</p>
+    <p>
+        <strong>Altura del árbol:</strong>
+        {{ altura }}
+    </p>
 
 </div>
 

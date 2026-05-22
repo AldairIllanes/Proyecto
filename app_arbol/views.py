@@ -19,7 +19,9 @@ def inicio(request):
 
 def ver_arbol(request):
     contexto = {
-        'nodos': raiz.recorrer(),
+        'academico': academico.hijos,
+        'administrativo': administrativo.hijos,
+        'tecnico': tecnico.hijos,
         'total': raiz.contar_nodos(),
         'altura': raiz.calcular_altura()
     }

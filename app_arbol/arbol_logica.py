@@ -1,11 +1,15 @@
 class NodoRuta:
-    def __init__(self, dato):
-        self.dato = dato
+
+    def __init__(self, nombre):
+        self.nombre = nombre
         self.hijos = []
 
-    def agregar_hijo(self, nodo_hijo):
-        self.hijos.append(nodo_hijo)
+    def agregar_hijo(self, hijo):
+        self.hijos.append(hijo)
 
+    def __str__(self):
+        return self.nombre
+    
     def recorrer(self):
         resultado = [self.dato]
 

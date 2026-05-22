@@ -5,6 +5,7 @@ raiz = NodoRuta("Reclamos")
 academico = NodoRuta("Académico")
 administrativo = NodoRuta("Administrativo")
 tecnico = NodoRuta("Técnico")
+
 raiz.agregar_hijo(academico)
 raiz.agregar_hijo(administrativo)
 raiz.agregar_hijo(tecnico)
@@ -26,7 +27,7 @@ def ver_arbol(request):
         'altura': raiz.calcular_altura()
     }
     return render(request, 'arbol.html', contexto)
-    
+
 def buscar_reclamo(request):
     resultado = None
     if request.method == 'POST':
@@ -53,6 +54,18 @@ def registrar_reclamo(request):
             tecnico.agregar_hijo(nuevo_reclamo)
         mensaje = "Reclamo agregado correctamente"
     return render(request, 'registrar.html', {
+        'mensaje': mensaje
+    })
+
+def eliminar_reclamo(request):
+    mensaje = None
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        if raiz.eliminar_hijo(nombre):
+            mensaje = f"Reclamo eliminado: {nombre}"
+        else:
+            mensaje = f"No se encontró el reclamo: {nombre}"
+    return render(request, 'eliminar.html', {
         'mensaje': mensaje
     })
 

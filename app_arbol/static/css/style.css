@@ -221,3 +221,49 @@ footer{
     padding:20px;
     color:gray;
 }
+
+.resultado-card {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.detalle-card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detalle-item {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+.detalle-item strong {
+    color: #205c5b;
+}
+
+.detalle-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #205c5b;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.detalle-btn:hover {
+    background-color: #174544;
+}
+
+.mensaje{
+    margin:30px auto;
+    width:350px;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    text-align:center;
+}

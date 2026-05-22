@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>🔍 Buscar Reclamo</h2>
+
+<div class="card">
+
+    <form method="POST" class="form-reclamo">
+
+        {% csrf_token %}
+
+        <input 
+            type="text" 
+            name="buscar"
+            placeholder="Ingrese el nombre del reclamo"
+        >
+
+        <button type="submit">
+            Buscar Reclamo
+        </button>
+
+    </form>
+
+</div>
+
+{% if resultado %}
+
+<div class="card resultado-card">
+
+    <h3>Resultado de la búsqueda</h3>
+
+    <p>{{ resultado }}</p>
+
+    <a href="/detalle/" class="detalle-btn">
+        Ver detalle
+    </a>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

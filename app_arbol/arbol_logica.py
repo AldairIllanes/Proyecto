@@ -11,7 +11,7 @@ class NodoRuta:
         return self.nombre
     
     def recorrer(self):
-        resultado = [self.dato]
+        resultado = [self.nombre]
 
         for hijo in self.hijos:
             resultado.extend(hijo.recorrer())
@@ -19,7 +19,7 @@ class NodoRuta:
         return resultado
 
     def buscar(self, valor):
-        if self.dato.lower() == valor.lower():
+        if self.nombre.lower() == valor.lower():
             return True
 
         for hijo in self.hijos:
@@ -48,11 +48,11 @@ class NodoRuta:
         return 1 + max(alturas)
 
     def obtener_hijos(self):
-        return [hijo.dato for hijo in self.hijos]
+        return [hijo.nombre for hijo in self.hijos]
 
     def eliminar_hijo(self, valor):
         for hijo in self.hijos:
-            if hijo.dato.lower() == valor.lower():
+            if hijo.nombre.lower() == valor.lower():
                 self.hijos.remove(hijo)
                 return True
             elif hijo.eliminar_hijo(valor):

@@ -52,7 +52,7 @@ def registrar_reclamo(request):
         mensaje = "Reclamo agregado correctamente"
     return render(request, 'registrar.html', {
         'mensaje': mensaje
-    })x|
+    })
 
 def detalle_reclamo(request):
     return render(request, 'detalle.html')

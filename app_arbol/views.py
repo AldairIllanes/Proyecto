@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .arbol_logica import NodoRuta
 
 raiz = NodoRuta("Reclamos")
+
 academico = NodoRuta("Académico")
 administrativo = NodoRuta("Administrativo")
 tecnico = NodoRuta("Técnico")
@@ -14,6 +15,8 @@ academico.agregar_hijo(NodoRuta("Matrícula"))
 academico.agregar_hijo(NodoRuta("Notas"))
 administrativo.agregar_hijo(NodoRuta("Pagos"))
 tecnico.agregar_hijo(NodoRuta("Aula Virtual"))
+
+detalle_actual = {}
 
 def inicio(request):
     return render(request, 'index.html')
@@ -29,13 +32,23 @@ def ver_arbol(request):
     return render(request, 'arbol.html', contexto)
 
 def buscar_reclamo(request):
+    global detalle_actual
     resultado = None
     if request.method == 'POST':
         valor = request.POST.get('buscar')
         if raiz.buscar(valor):
-            resultado = f"Sí existe el reclamo: {valor}"
+            resultado = valor
+            detalle_actual = {
+                'nombre': valor,
+                'tipo': 'Administrativo',
+                'estado': 'Pendiente',
+                'prioridad': 'Alta',
+                'descripcion': f'Reclamo relacionado con {valor}',
+                'responsable': 'Área de Tesorería',
+                'fecha': '22/05/2026'
+            }
         else:
-            resultado = f"No existe el reclamo: {valor}"
+            resultado = "No existe el reclamo"
     return render(request, 'buscar.html', {
         'resultado': resultado
     })
@@ -70,7 +83,12 @@ def eliminar_reclamo(request):
     })
 
 def detalle_reclamo(request):
-    return render(request, 'detalle.html')
+    return render(request, 'detalle.html', detalle_actual)
 
 def gestion(request):
-    return render(request, 'gestion.html')
+    contexto = {
+        'usuarios': 25,
+        'reclamos': raiz.contar_nodos(),
+        'categorias': 3
+    }
+    return render(request, 'gestion.html', contexto)

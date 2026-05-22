@@ -23,4 +23,5 @@ urlpatterns = [
     path('arbol/', views.ver_arbol, name='arbol'),
     path('buscar/', views.buscar_reclamo, name='buscar'),
     path('detalle/', views.detalle_reclamo, name='detalle'),
+    path('gestion/', views.gestion, name='gestion'),
 ]

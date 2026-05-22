@@ -58,3 +58,6 @@ def registrar_reclamo(request):
 
 def detalle_reclamo(request):
     return render(request, 'detalle.html')
+
+def gestion(request):
+    return render(request, 'gestion.html')

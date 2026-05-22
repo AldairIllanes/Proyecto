@@ -11,42 +11,23 @@
         <h3>📋 Estado General</h3>
 
         <p>📌 Reclamos Pendientes: 3</p>
-
         <p>🚨 Prioridad Alta: 1</p>
 
-        <button class="btn-atender" onclick="mostrarMensaje()">
-            Atender Reclamo
-        </button>
+        <form method="POST" action="/eliminar/">
+            {% csrf_token %}
 
-        <p id="mensaje-atencion" class="mensaje-ok"></p>
+            <input type="text" name="nombre" placeholder="Nombre del reclamo" required>
 
-    </div>
-
-    <div class="hero-card">
-
-        <h3>🔄 Flujo de Atención</h3>
-
-        <p>1️⃣ Recepción del reclamo</p>
-
-        <p>2️⃣ Clasificación por categoría</p>
-
-        <p>3️⃣ Atención institucional</p>
-
-        <p>4️⃣ Resolución del caso</p>
+            <button type="submit">
+                Atender / Eliminar
+            </button>
+        </form>
 
     </div>
-
 </div>
 
-<script>
-
-function mostrarMensaje() {
-
-    document.getElementById("mensaje-atencion").innerHTML =
-    "✅ Reclamo enviado al área correspondiente";
-
-}
-
-</script>
+{% if mensaje %}
+    <p class="mensaje">{{ mensaje }}</p>
+{% endif %}
 
 {% endblock %}

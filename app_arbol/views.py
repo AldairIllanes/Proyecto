@@ -74,11 +74,16 @@ def eliminar_reclamo(request):
     mensaje = None
     if request.method == 'POST':
         nombre = request.POST.get('nombre')
-        if raiz.eliminar_hijo(nombre):
-            mensaje = f"Reclamo eliminado: {nombre}"
-        else:
-            mensaje = f"No se encontró el reclamo: {nombre}"
-    return render(request, 'eliminar.html', {
+        try:
+            eliminado = raiz.eliminar_hijo(nombre)
+
+            if eliminado:
+                mensaje = f"Reclamo eliminado: {nombre}"
+            else:
+                mensaje = f"No se encontró el reclamo: {nombre}"
+        except Exception:
+            mensaje = "Error: el reclamo no existe o ocurrió un problema"
+    return render(request, 'gestion.html', {
         'mensaje': mensaje
     })
 

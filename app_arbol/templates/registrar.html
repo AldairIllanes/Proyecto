@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>📋 Registrar Reclamo</h2>
+
+<form class="form-reclamo">
+
+    <input type="text" placeholder="Ingrese el nombre del reclamo">
+
+    <select>
+
+        <option>Académico</option>
+        <option>Administrativo</option>
+        <option>Técnico</option>
+
+    </select>
+
+    <textarea placeholder="Descripción del reclamo"></textarea>
+
+    <button type="submit">
+        Guardar Reclamo
+    </button>
+
+</form>
+
+{% endblock %}

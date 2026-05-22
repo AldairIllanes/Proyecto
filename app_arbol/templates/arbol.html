@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>🌳 Árbol de Reclamos</h2>
+
+<div class="tree-container">
+
+    <div class="tree-root">
+        📋 Reclamos
+    </div>
+
+    <div class="tree-grid">
+
+        <div class="tree-card">
+
+            <h3>📘 Académico</h3>
+
+            {% for nodo in nodos %}
+
+                {% if nodo == "Matrícula" or nodo == "Notas" %}
+
+                    <div class="tree-item">
+                        {{ nodo }}
+                    </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+        <div class="tree-card">
+
+            <h3>💳 Administrativo</h3>
+
+            {% for nodo in nodos %}
+
+                {% if nodo == "Pagos" %}
+
+                    <div class="tree-item">
+                        {{ nodo }}
+                    </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+        <div class="tree-card">
+
+            <h3>💻 Técnico</h3>
+
+            {% for nodo in nodos %}
+
+                {% if nodo == "Aula Virtual" %}
+
+                    <div class="tree-item">
+                        {{ nodo }}
+                    </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card stats-card">
+
+    <p><strong>Total de nodos:</strong> {{ total }}</p>
+
+    <p><strong>Altura del árbol:</strong> {{ altura }}</p>
+
+</div>
+
+{% endblock %}

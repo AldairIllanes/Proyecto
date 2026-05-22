@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RutaTree Instituto</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            🎓 RutaTree Instituto
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Inicio</a>
+            <a href="/registrar/">Registrar</a>
+            <a href="/arbol/">Árbol</a>
+            <a href="/buscar/">Buscar</a>
+            <a href="/detalle/">Detalle</a>
+        </div>
+
+    </nav>
+
+    <div class="container">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+    <footer>
+        <p>RutaTree Instituto © 2026</p>
+    </footer>
+
+</body>
+
+</html>

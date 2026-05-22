@@ -39,6 +39,6 @@ def buscar_reclamo(request):
 
 def registrar_reclamo(request):
     return render(request, 'registrar.html')
-# DETALLE
+
 def detalle_reclamo(request):
     return render(request, 'detalle.html')
